@@ -1,6 +1,6 @@
 import { getPosts } from "../actions/post/getPosts";
 
-export const postsGallery = async () => {
+export const PostsGallery = async () => {
 
     const posts = await getPosts();
 
