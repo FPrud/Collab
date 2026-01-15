@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="flex flex-col antialiased bg-zinc-50 font-sans dark:bg-black">
-        <nav className="flex justify-center">
+        <nav id="navbar" className="flex m-5 justify-center">
           <Link href="/"><h2 className="text-4xl">Collab'</h2></Link>
         </nav>
         {children}
