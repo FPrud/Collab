@@ -13,11 +13,11 @@ export const signUpAction = async (formData: FormData) => {
 
     const response = await auth.api.signUpEmail({
         body: {
-            name: name,
-            email: email,
-            password: password,
+            name,
+            email,
+            password
         },
-        asResponse: true,
+        asResponse: true
     });
     if (!response.ok) {
         console.error("Sign in failed:", await response.json());
