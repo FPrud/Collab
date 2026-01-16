@@ -1,18 +1,16 @@
 "use client";
 
-import { signUpAction } from "@/app/actions/connectionActions/signUpAction";
+import { SignUpForm } from "@/app/components/connectionForms/SignUpForm";
+import { useSearchParams } from "next/navigation";
 
-export const SignUpForm = () => {
+export default function SignUpPage() {
+    const searchParams = useSearchParams();
+    const emailFromParams = searchParams.get("email") || "";
 
     return (
-        <form action={signUpAction} id="signUpForm" className="flex flex-col p-3 m-3 gap-1 border boder-white">
-            <label htmlFor="name">Nom d'artiste / nom de groupe</label>
-            <input name="name" type="text" required />
-            <label htmlFor="email">E-mail</label>
-            <input name="email" type="email" required />
-            <label htmlFor="password">Mot de passe</label>
-            <input name="password" type="password" required/>
-            <button type="submit">S'incrire</button>
-        </form>
+        <div className="flex flex-col items-center justify-center min-h-screen">
+            <h1 className="text-4xl mb-8">Créer un compte</h1>
+            <SignUpForm emailFromParams={emailFromParams} />
+        </div>
     );
-};
+}

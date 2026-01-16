@@ -1,10 +1,9 @@
-import type { Metadata, Viewport } from "next";
+import type { Metadata } from "next";
 import "./globals.css";
 import Link from "next/link";
 import { auth } from "@/src/auth";
 import { headers } from "next/headers";
-import { signUpAction } from "./actions/connectionActions/signUpAction";
-import { signInAction } from "./actions/connectionActions/signInAction";
+import { RootLayoutClient } from "./layout.client";
 
 export const metadata: Metadata = {
   title: "Collab'",
@@ -16,27 +15,22 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   const session = await auth.api.getSession({ headers: await headers() });
 
   return (
-    <html lang="en">
+    <html lang="fr">
       <body className="flex flex-col antialiased bg-white font-sans dark:bg-black">
         <nav id="navbar" className="flex flex-col m-5 justify-center">
-
-          <Link href="/" className="flex self-center"><div id="logo" className="border border-white justify-center p-5"><h2 className="text-4xl">Collab'</h2></div></Link>
-
-          <div id="logOptions" className="flex justify-center">{session ? <><button>Se déconnecter</button></> : (
-            <>
-              <form action={signInAction} id="signUpForm" className="flex flex-col p-3 m-3 gap-1 border boder-white">
-                <label htmlFor="email" hidden>E-mail</label>
-                <input name="email" type="email" placeholder="email" required />
-                <label htmlFor="password" hidden>Mot de passe</label>
-                <input name="password" type="password" placeholder="mot de passe" required />
-                <button type="submit">Connexion</button>
-              </form>
-            </>
-          )}</div>
+          <Link href="/" className="flex self-center">
+            <div id="logo" className="border border-white justify-center p-5">
+              <h2 className="text-4xl">Collab'</h2>
+            </div>
+          </Link>
+          <RootLayoutClient
+          isAuthenticated={!!session}
+          userEmail={session?.user?.email}
+          userName={session?.user.name}
+          userSession={session}/>
         </nav>
         {children}
       </body>
