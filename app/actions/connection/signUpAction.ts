@@ -10,11 +10,12 @@ export const signUpAction = async (formData: FormData) => {
     if (!name && !email && !password) {
         throw Error("Artist name, email and password are required");
     }
+
     const response = await auth.api.signUpEmail({
         body: {
-            name,
-            email,
-            password,
+            name: name,
+            email: email,
+            password: password,
         },
         asResponse: true,
     });

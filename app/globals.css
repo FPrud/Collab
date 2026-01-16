@@ -26,7 +26,18 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+div, body, main, head {
+  border-radius: 5px;
+}
+
 h2 {
   font-family: "BBH Bartle", sans-serif;
   font-style: normal;
+}
+
+input, button {
+  border-color:white;
+  border-width: 1px;
+  background-color: #171717;
+  border-radius: 5px;
 }

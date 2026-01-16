@@ -7,7 +7,7 @@ export const roleStatus = pgEnum("role", ["user", "admin"]);
 
 export const user = pgTable("user", {
   id: text("id").primaryKey(),
-  name: text("name"),
+  name: text("name").notNull(),
   email: text("email").notNull().unique(),
   emailVerified: boolean("email_verified").default(false).notNull(),
   image: text("image"),
@@ -101,11 +101,7 @@ export const accountRelations = relations(account, ({ one }) => ({
 //tables spécifiques à Collab'
 
 export const profile = pgTable("profile", {
-  artistName: text("artist_name").notNull(),
-  addressNumber: integer("address_number"),
-  addressStreetName: text("address_street_name"),
-  addressZipCode: integer("address_zip_code"),
-  addressCountry: text("address_country"),
+  address: integer("address"),
   birthdate: date("birthdate"),
   bio: text("bio"),
   contactLink: text("contact_link").notNull(),
