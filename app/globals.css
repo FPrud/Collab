@@ -2,21 +2,20 @@
 @import "tailwindcss";
 
 :root {
-  /* Palette inspirée du matériel musical vintage */
-  --color-primary: #1a1a1a;        
-  --color-secondary: #8b7355;      
-  --color-accent: #d4a574;         
-  --color-background: #e4d9cd;     
-  --color-background-alt: #e8ddd0; /* Toile beige foncé - variante */
-  --color-surface: #ffffff;        /* Blanc pur - surface propre */
-  --color-surface-dark: #2d2d2d;   /* Surface sombre - variante */
-  --color-border: #4a4a4a;         /* Gris métal - hardware */
-  --color-text: #2d2d2d;           /* Charbon - texte principal */
-  --color-text-muted: #6b6b6b;     /* Gris - texte secondaire */
-  --color-hover: #a67c52;          /* Cuivre oxydé - hover */
-  --color-shadow: rgba(0,0,0,0.1); /* Ombre subtile */
-  --color-section-bg: rgba(245, 235, 224, 0.5); /* Fond des sections */
-  --color-section-border: rgba(74, 74, 74, 0.2); /* Bordure des sections */
+  --color-primary: #1a1a1a;
+  --color-secondary: #8b7355;
+  --color-accent: #d4a574;
+  --color-background: #e4d9cd;
+  --color-background-alt: #e8ddd0;
+  --color-surface: #ffffff;
+  --color-surface-dark: #2d2d2d;
+  --color-border: #4a4a4a;
+  --color-text: #2d2d2d;
+  --color-text-muted: #6b6b6b;
+  --color-hover: #a67c52;
+  --color-shadow: rgba(0,0,0,0.1);
+  --color-section-bg: rgba(245, 235, 224, 0.5);
+  --color-section-border: rgba(74, 74, 74, 0.2);
 }
 
 body {
